@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div th:fragment="menu(active,bigactive)" id="sidebar" class="sidebar responsive">
+
+    <ul id="menu" class="nav nav-list">
+
+        <!-- 内容标签 -->
+        <li th:class="${bigactive}=='content'?'active open':''">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-list"></i>
+                <span class="menu-text"> 内容 </span>
+
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+
+            <b class="arrow"></b>
+
+            <ul class="submenu">
+                <li th:class="${active}=='content_manage'?'active':''">
+                    <a th:href="@{/admin/content_manage}">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        内容管理
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+
+
+                <li th:class="${active}=='content_publish'?'active':''">
+                    <a th:href="@{/admin/content_publish}">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        内容发布
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+            </ul>
+        </li>
+
+
+        <li th:class="${bigactive}=='galler'?'active open':''">
+            <a th:href="@{/admin/gallery}">
+                <i class="menu-icon fa fa-picture-o"></i>
+                <span class="menu-text"> 相册 </span>
+            </a>
+
+            <b class="arrow"></b>
+        </li>
+
+        <li th:class="${bigactive}=='more'?'active open':''">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-tag"></i>
+                <span class="menu-text"> 更多页面 </span>
+
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+
+            <b class="arrow"></b>
+
+            <ul class="submenu">
+                <li th:class="${active}=='profile'?'active':''">
+                    <a th:href="@{/admin/profile}">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        用户信息
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+
+
+                <li th:class="${active}=='timeline'?'active':''">
+                    <a th:href="@{/admin/timeline}">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        时间轴
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+            </ul>
+        </li>
+
+        <li th:class="${bigactive}=='other'?'active open':''">
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-file-o"></i>
+
+                <span class="menu-text">
+								其他页面
+
+                    <!-- #section:basics/sidebar.layout.badge -->
+								<span class="badge badge-primary">5</span>
+
+                    <!-- /section:basics/sidebar.layout.badge -->
+							</span>
+
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+
+            <b class="arrow"></b>
+
+            <ul class="submenu">
+                <li th:class="${active}=='error-404'?'active':''">
+                    <a th:href="@{/admin/error-404}">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        404错误页面
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+
+                <li th:class="${active}=='error-500'?'active':''">
+                    <a th:href="@{/admin/error-500}">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        500错误页面
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+
+                <li th:class="${active}=='blank'?'active':''">
+                    <a th:href="@{/admin/blank}">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        空白页面
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+            </ul>
+        </li>
+    </ul><!-- /.nav-list -->
+
+</div>

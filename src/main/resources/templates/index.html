@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: header('首页')"></head>
+
+<body>
+<div class="picshow">
+    <ul>
+        <li><a th:href="@{#}"><i><img th:src="@{/images/b01.jpg}"></i>
+            <div class="font">
+                <h3>内容一</h3>
+            </div>
+        </a></li>
+        <li><a th:href="@{#}"><i><img th:src="@{/images/b02.jpg}"></i>
+            <div class="font">
+                <h3>内容二</h3>
+            </div>
+        </a></li>
+        <li><a th:href="@{#}"><i><img th:src="@{/images/b03.jpg}"></i>
+            <div class="font">
+                <h3>内容三</h3>
+            </div>
+        </a></li>
+        <li><a th:href="@{#}"><i><img th:src="@{/images/b04.jpg}"></i>
+            <div class="font">
+                <h3>内容四</h3>
+            </div>
+        </a></li>
+        <li><a th:href="@{#}"><i><img th:src="@{/images/b05.jpg}"></i>
+            <div class="font">
+                <h3>内容五</h3>
+            </div>
+        </a></li>
+    </ul>
+</div>
+<article>
+    <div class="blogs">
+        <li th:each="content : ${contentList}"> <span class="blogpic"><a href="/"></a></span>
+            <h3 class="blogtitle"><a th:href="@{'/info/'+${content.id}+'.html'}"><th:block th:text="${content.title}"/></a></h3>
+            <div class="bloginfo">
+                <p><th:block th:text="${content.abstracts}"/></p>
+            </div>
+            <div class="autor"><span class="lm"><a th:href="@{#}"  target="_blank" class="classname"><th:block th:text="${content.tags}" /></a></span><span class="dtime"><th:block th:text="${#dates.format(content.updatetime,'yyyy-MM-dd HH:mm')}" /></span><span class="viewnum">浏览（<a href="/"><th:block th:text="${content.readtimes}" /></a>）</span><span class="readmore"><a a th:href="@{'/info/'+${content.id}+'.html'}">阅读原文</a></span></div>
+        </li>
+    </div>
+    <div class="sidebar">
+
+        <div th:replace="tags :: about"></div>
+
+        <div th:replace="tags :: search"></div>
+
+        <div th:replace="tags :: tags"></div>
+
+        <div class="links">
+            <h2 class="hometitle">友情链接</h2>
+            <ul>
+                <li><a href="#" title="赵先生的个人博客">赵先生的个人博客</a></li>
+                <li><a href="#" title="赵先生的个人博客">赵先生的个人博客</a></li>
+            </ul>
+        </div>
+
+        <div th:replace="tags :: wx"></div>
+
+    </div>
+</article>
+<div class="blank"></div>
+<footer th:replace="footer :: footer"></footer>
+<script th:src="@{/js/nav.js}"></script>
+</body>
+</html>

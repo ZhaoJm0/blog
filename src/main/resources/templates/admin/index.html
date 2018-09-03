@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title='后台管理首页',active='index',bigactive=''">
+<header th:replace="admin/link :: link(${title})"></header>
+<body class="no-skin">
+<!-- 头部内容 -->
+<div th:replace="admin/header :: header-body"></div>
+<!-- 外部div -->
+<div class="main-container" id="main-container">
+	<!-- 左侧菜单 -->
+	<div th:replace="admin/leftmenu :: menu(${active},${bigactive})"></div>
+	<!-- 中间内容 -->
+	<div th:replace="admin/welcome :: welcome"></div>
+	<!-- 底部鸣谢 -->
+	<div th:replace="admin/think :: think"></div>
+	<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+		<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+	</a>
+</div>
+<!--[if !IE]> -->
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='../../assets/js/jquery.min.js'>"+"<"+"/script>");
+</script>
+<!-- <![endif]-->
+<!--[if IE]>
+<script type="text/javascript">
+	window.jQuery || document.write("<script src='../../asasets/js/jquery1x.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+<script type="text/javascript">
+    if('ontouchstart' in document.documentElement) document.write("<script src='../../assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+</script>
+<script th:src="@{/assets/js/bootstrap.min.js}"></script>
+<!--[if lte IE 8]>
+<script src="@{/assets/js/excanvas.min.js}"></script>
+<![endif]-->
+<script th:src="@{/assets/js/jquery-ui.custom.min.js}"></script>
+<script th:src="@{/assets/js/jquery.ui.touch-punch.min.js}"></script>
+<script th:src="@{/assets/js/ace-elements.min.js}"></script>
+<script th:src="@{/assets/js/ace.min.js}"></script>
+</body>
+</html>

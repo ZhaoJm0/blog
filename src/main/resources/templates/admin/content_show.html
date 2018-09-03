@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title='内容',active='',bigactive='content'">
+
+<header th:replace="admin/link :: link(${title})"></header>
+
+<body class="no-skin">
+<!-- 头部内容 -->
+<div th:replace="admin/header :: header-body"></div>
+
+<!-- 外部div -->
+<div class="main-container" id="main-container">
+
+	<!-- 左侧菜单 -->
+	<div th:replace="admin/leftmenu :: menu(${active},${bigactive})"></div>
+
+	<div class="main-content">
+		<!-- 导航和搜索栏 -->
+		<div th:replace="admin/navigation :: navigation('内容','')"></div>
+
+		<!-- /section:basics/content.breadcrumbs -->
+		<div class="page-content">
+
+			<div class="page-content-area">
+				<div class="page-header">
+					<h1>
+						<th:block th:text="${cont.title}"/>
+						<small>
+							<i class="ace-icon fa fa-angle-double-right"></i>
+							页面副标题
+						</small>
+					</h1>
+				</div><!-- /.page-header -->
+
+				<div class="row">
+					<div class="col-xs-12">
+						<!-- PAGE CONTENT BEGINS -->
+						<div class="row">
+							<div class="col-sm-12">
+								<h4><th:block th:text="${cont.abstracts}"/></h4>
+								<hr />
+								<th:block th:utext="${cont.content}"/>
+							</div><!-- /.col -->
+						</div>
+					</div><!-- /.page-content-area -->
+				</div><!-- /.page-content -->
+			</div><!-- /.main-content -->
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+	</div>
+</div>
+
+<!--[if !IE]> -->
+<script type="text/javascript">
+    /*<![CDATA[*/
+    window.jQuery || document.write("<script src='/assets/js/jquery.min.js'>"+"<"+"/script>");
+    /*]]>*/
+</script>
+<!-- <![endif]-->
+<!--[if IE]>
+<script type="text/javascript">
+	window.jQuery || document.write("<script src='/assets/js/jquery1x.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+<script type="text/javascript">
+    if('ontouchstart' in document.documentElement) document.write("<script src='../../assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+</script>
+<script th:src="@{/assets/js/bootstrap.min.js}"></script>
+<!--[if lte IE 8]>
+<script th:src="@{assets/js/excanvas.min.js}"></script>
+<![endif]-->
+<script th:src="@{/assets/js/jquery-ui.custom.min.js}"></script>
+<script th:src="@{/assets/js/jquery.ui.touch-punch.min.js}"></script>
+<script th:src="@{/assets/js/ace-elements.min.js}"></script>
+<script th:src="@{/assets/js/ace.min.js}"></script>
+</body>
+</html>

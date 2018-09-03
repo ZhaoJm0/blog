@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title='后台管理首页',active='index',bigactive=''">
+<head>
+
+</head>
+
+<body class="no-skin">
+
+    <div th:fragment="welcome" class="main-content">
+        <div th:replace="admin/navigation :: navigation('','')"></div>
+
+        <div class="page-content">
+            <div class="page-content-area">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <div class="alert alert-block alert-info">
+                            <button type="button" class="close" data-dismiss="alert">
+                                <i class="ace-icon fa fa-times"></i>
+                            </button>
+
+                            <i class="ace-icon fa fa-check green"></i>
+
+                            <strong class="green">你好：</strong>
+                            欢迎来到'赵先生的博客'的后台管理系统！！
+                        </div>
+                        <div class="row center">
+                            <img th:src="@{/assets/avatars/logo_2.png}" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

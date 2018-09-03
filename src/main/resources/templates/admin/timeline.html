@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title='时间轴',active='timeline',bigactive='more'">
+
+<header th:replace="admin/link :: link(${title})"></header>
+
+	<body class="no-skin">
+	<!-- 头部内容 -->
+	<div th:replace="admin/header :: header-body"></div>
+
+		<!-- /section:basics/navbar.layout -->
+		<div class="main-container" id="main-container">
+
+			<!-- 左侧菜单 -->
+			<div th:replace="admin/leftmenu :: menu(${active},${bigactive})"></div>
+
+			<!-- /section:basics/sidebar -->
+			<div class="main-content">
+
+				<div th:replace="admin/navigation :: navigation('更多页面',${title})"></div>
+
+				<!-- /section:basics/content.breadcrumbs -->
+				<div class="page-content">
+
+					<!-- /section:settings.box -->
+					<div class="page-content-area">
+						<div class="page-header">
+							<h1>
+								时间轴
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+									用户的历史过往记录
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+
+								<div id="timeline-1">
+									<div class="row">
+										<div class="col-xs-12 col-sm-10 col-sm-offset-1">
+
+											<div th:each="timeline : ${timelines}" class="timeline-container">
+												<div class="timeline-label">
+													<span class="label label-grey arrowed-in-right label-lg">
+														<b><th:block th:text="${#dates.format(timeline.eventDate,'MM月dd日')}" /></b>
+													</span>
+												</div>
+
+												<div class="timeline-items">
+													<div class="timeline-item clearfix">
+														<div class="timeline-info">
+															<i class="timeline-indicator ace-icon fa fa-star btn btn-warning no-hover green"></i>
+														</div>
+
+														<div class="widget-box transparent">
+															<div class="widget-header widget-header-small">
+																<h5 class="widget-title smaller"><th:block th:text="${timeline.eventName}" /></h5>
+
+																<span class="widget-toolbar no-border">
+																	<i class="ace-icon fa fa-clock-o bigger-110"></i>
+																	<th:block th:text="${#dates.format(timeline.eventTime,'HH:mm:ss')}" />
+																</span>
+															</div>
+
+															<div class="widget-body">
+																<div class="widget-main">
+																	<th:block th:text="${timeline.eventContent}" />
+																</div>
+															</div>
+														</div>
+													</div>
+												</div><!-- /.timeline-items -->
+											</div><!-- /.timeline-container -->
+
+											<!-- /section:pages/timeline -->
+										</div>
+									</div>
+								</div>
+
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content-area -->
+				</div><!-- /.page-content -->
+			</div><!-- /.main-content -->
+
+			<!-- 底部鸣谢 -->
+			<div th:replace="admin/think :: think"></div>
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script type="text/javascript">
+            /*<![CDATA[*/
+			window.jQuery || document.write("<script src='/assets/js/jquery.min.js'>"+"<"+"/script>");
+            /*]]>*/
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+		<script type="text/javascript">
+		 window.jQuery || document.write("<script src='/assets/js/jquery1x.min.js'>"+"<"+"/script>");
+		</script>
+		<![endif]-->
+		<script type="text/javascript">
+            /*<![CDATA[*/
+			if('ontouchstart' in document.documentElement) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+            /*]]>*/
+		</script>
+		<script th:src="@{/assets/js/bootstrap.min.js}"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<!-- ace scripts -->
+		<script th:src="@{/assets/js/ace-elements.min.js}"></script>
+		<script th:src="@{/assets/js/ace.min.js}"></script>
+
+		<script type="text/javascript">
+			jQuery(function($) {
+				$('[data-toggle="buttons"] .btn').on('click', function(e){
+					var target = $(this).find('input[type=radio]');
+					var which = parseInt(target.val());
+					$('[id*="timeline-"]').addClass('hide');
+					$('#timeline-'+which).removeClass('hide');
+				});
+			});
+		</script>
+
+	</body>
+</html>

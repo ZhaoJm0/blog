@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="header(title)">
+    <title><th:block th:text="${title}"/>_赵先生博客</title>
+    <meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″>
+    <meta name="keywords" content="个人博客,赵金铭个人博客,赵金铭,赵先生" />
+    <meta name="description" content="杨青个人博客，是一个站在web前端设计之路的女程序员个人网站，提供个人博客模板免费资源下载的个人原创网站。" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/base.css}" rel="stylesheet">
+    <link th:href="@{/css/index.css}" rel="stylesheet">
+    <link th:href="@{/css/m.css}" rel="stylesheet">
+    <script th:src="@{/js/jquery-2.1.1.min.js}"></script>
+
+    <!--[if lt IE 9]>
+    <script th:src="@{/js/modernizr.js}"></script>
+    <![endif]-->
+    <script>
+        window.onload = function ()
+        {
+            var oH2 = document.getElementsByTagName("h2")[0];
+            var oUl = document.getElementsByTagName("ul")[0];
+            oH2.onclick = function ()
+            {
+                var style = oUl.style;
+                style.display = style.display == "block" ? "none" : "block";
+                oH2.className = style.display == "block" ? "open" : ""
+            }
+        }
+    </script>
+</head>
+
+<header th:fragment="navigation">
+    <div class="tophead">
+        <div class="logo"><a th:href="@{/index.html}">赵先生个人博客</a></div>
+        <div id="mnav">
+            <h2><span class="navicon"></span></h2>
+            <ul>
+                <li><a th:href="@{/index.html}">网站首页</a></li>
+                <li><a th:href="@{/info.html}">慢生活</a></li>
+            </ul>
+        </div>
+        <nav class="topnav" id="topnav">
+            <ul>
+                <li><a th:href="@{/index.html}">网站首页</a></li>
+                <li><a th:href="@{/info.html}">慢生活</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+</html>

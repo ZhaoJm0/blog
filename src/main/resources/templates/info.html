@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<header th:replace="header :: header('内容')"></header>
+<body>
+
+<article>
+    <h1 class="t_nav"><span>您现在的位置是：首页 > 慢生活</span><a href="/" class="n1">网站首页</a><a href="#" class="n2">慢生活</a></h1>
+    <div class="infos">
+        <div class="newsview">
+            <h3 class="news_title"><th:block th:text="${content.title}" /></h3>
+            <div class="news_author"><span class="au01"><a href="mailto:504217015@qq.com"><th:block th:text="${content.author}" /></a></span><span class="au02"><th:block th:text="${#dates.format(content.updatetime,'yyyy-MM-dd HH:mm:ss')}" /></span><span class="au03">共<b><th:block th:text="${content.readtimes}" /></b>人围观</span></div>
+            <div class="tags"><a href="#" target="_blank"><th:block th:text="${content.category}" /></a></div>
+            <div class="news_about"><strong>介绍</strong><th:block th:text="${content.abstracts}" /></div>
+            <div class="news_infos"><th:block th:utext="${content.content}" /></div>
+        </div>
+        <div class="share"> </div>
+        <!--<div class="nextinfo">
+            <p>上一篇：<a href="/news/life/2018-03-13/804.html">作为一个设计师,如果遭到质疑你是否能恪守自己的原则?</a></p>
+            <p>下一篇：<a href="/news/life/">返回列表</a></p>
+        </div>
+        <div class="otherlink">
+            <h2>相关文章</h2>
+            <ul>
+                <li><a href="/download/div/2018-04-22/815.html" title="html5个人博客模板《黑色格调》">html5个人博客模板《黑色格调》</a></li>
+                <li><a href="/download/div/2018-04-18/814.html" title="html5个人博客模板主题《清雅》">html5个人博客模板主题《清雅》</a></li>
+                <li><a href="/download/div/2018-03-18/807.html" title="html5个人博客模板主题《绅士》">html5个人博客模板主题《绅士》</a></li>
+            </ul>
+        </div>-->
+        <div class="news_pl">
+            <h2>文章评论</h2>
+            <ul>
+                <div class="gbko"> </div>
+            </ul>
+        </div>
+    </div>
+    <div class="sidebar">
+
+        <div th:replace="tags :: search"></div>
+
+        <!--<div class="lmnav">
+            <h2 class="hometitle">栏目导航</h2>
+            <ul class="navbor">
+                <li><a href="#">关于我</a></li>
+                <li><a href="share.html">模板分享</a>
+                    <ul>
+                        <li><a href="list.html">个人博客模板</a></li>
+                        <li><a href="#">HTML5模板</a></li>
+                    </ul>
+                </li>
+                <li><a href="list.html">学无止境</a>
+                    <ul>
+                        <li><a href="list.html">学习笔记</a></li>
+                        <li><a href="#">HTML5+CSS3</a></li>
+                        <li><a href="#">网站建设</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">慢生活</a></li>
+            </ul>
+        </div>-->
+
+        <div th:replace="tags :: tags"></div>
+
+        <div th:replace="tags :: wx"></div>
+    </div>
+</article>
+<footer th:replace="footer :: footer"></footer>
+<script th:src="@{/js/nav.js}"></script>
+<script type="text/javascript">
+    /*<![CDATA[*/
+    jQuery.noConflict();
+    jQuery(function() {
+        var elm = jQuery('#left_flow2');
+        var startPos = jQuery(elm).offset().top;
+        jQuery.event.add(window, "scroll", function() {
+            var p = jQuery(window).scrollTop();
+            jQuery(elm).css('position',((p) > startPos) ? 'fixed' : '');
+
+            jQuery(elm).css('top',((p) > startPos) ? '0' : '');
+        });
+    });
+    /*]]>*/
+</script>
+</body>
+</html>

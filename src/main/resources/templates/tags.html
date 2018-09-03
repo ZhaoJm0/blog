@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="tags" class="cloud">
+    <h2 class="hometitle">标签云</h2>
+    <ul>
+        <a th:each="tag : ${tags}" th:href="@{'/searchtag/'+${tag.name}}"><th:block th:text="${tag.name}" /></a>
+    </ul>
+</div>
+
+<div th:fragment="wx" class="weixin">
+    <h2 class="hometitle">个人微信</h2>
+    <ul>
+        <img th:src="@{/images/wx.jpg}">
+    </ul>
+</div>
+
+<div th:fragment="about" class="about">
+    <div class="avatar"> <img th:src="@{/images/avatar.jpg}" alt=""> </div>
+    <p class="abname">赵先生</p>
+    <p class="abposition">Java</p>
+    <div class="abtext"> 码农，想追求技术奈何没有老司机带路 </div>
+</div>
+
+<div th:fragment="search" class="search">
+    <form th:action="@{/searchkeyword}" method="post" name="searchform" id="searchform">
+        <input name="keyword" id="keyboard" class="input_text" value="请输入关键字" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字'}" type="text">
+        <input name="show" value="title" type="hidden">
+        <input name="tempid" value="1" type="hidden">
+        <input name="tbname" value="news" type="hidden">
+        <input name="Submit" class="input_submit" value="搜索" type="submit">
+    </form>
+</div>
+
+</body>
+</html>

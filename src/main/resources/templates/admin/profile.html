@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title='用户信息',active='profile',bigactive='more'">
+
+<header th:replace="admin/link :: link(${title})"></header>
+
+	<body class="no-skin">
+	<!-- 头部内容 -->
+	<div th:replace="admin/header :: header-body"></div>
+
+		<!-- /section:basics/navbar.layout -->
+		<div class="main-container" id="main-container">
+
+			<!-- 左侧菜单 -->
+			<div th:replace="admin/leftmenu :: menu(${active},${bigactive})"></div>
+
+			<!-- /section:basics/sidebar -->
+			<div class="main-content">
+
+				<div th:replace="admin/navigation :: navigation('更多页面',${title})"></div>
+
+
+				<!-- /section:basics/content.breadcrumbs -->
+				<div class="page-content">
+
+					<!-- /section:settings.box -->
+					<div class="page-content-area">
+						<div class="row">
+							<div class="col-xs-12">
+								<div id="user-profile-2" class="user-profile">
+										<div class="tabbable">
+											<ul class="nav nav-tabs padding-18">
+												<li class="active">
+													<a data-toggle="tab" href="#home">
+														<i class="green icon-user bigger-120"></i>
+														详细资料
+													</a>
+												</li>
+											</ul>
+
+											<div class="tab-content no-border padding-24">
+												<div id="home" class="tab-pane in active">
+													<div class="row">
+														<div class="col-xs-12 col-sm-3 center">
+															<span class="profile-picture">
+																<img class="editable img-responsive" alt="Alex's Avatar" id="avatar2" th:src="@{/assets/avatars/profile-pic.jpg}" />
+															</span>
+
+															<div class="space space-4"></div>
+
+
+															<a href="#" class="btn btn-sm btn-block btn-primary">
+																<i class="icon-envelope-alt bigger-110"></i>
+																<span class="bigger-110">发送邮件</span>
+															</a>
+														</div><!-- /span -->
+
+														<div class="col-xs-12 col-sm-9">
+															<h4 class="blue">
+																<span class="middle"><th:block th:text="${user.username}"/></span>
+
+																<span class="label label-purple arrowed-in-right">
+																	<i class="icon-circle smaller-80 align-middle"></i>
+																	在线
+																</span>
+															</h4>
+
+															<div class="profile-user-info">
+																<div class="profile-info-row">
+																	<div class="profile-info-name"> 用户名 </div>
+
+																	<div class="profile-info-value">
+																		<span>alexdoe</span>
+																	</div>
+																</div>
+
+																<div class="profile-info-row">
+																	<div class="profile-info-name"> 地址 </div>
+
+																	<div class="profile-info-value">
+																		<i class="icon-map-marker light-orange bigger-110"></i>
+																		<th:block th:text="${user.address}"/>
+																	</div>
+																</div>
+
+																<div class="profile-info-row">
+																	<div class="profile-info-name"> 年龄 </div>
+
+																	<div class="profile-info-value">
+																		<span><th:block th:text="${user.age}"/></span>
+																	</div>
+																</div>
+
+																<div class="profile-info-row">
+																	<div class="profile-info-name"> 加入公司时间 </div>
+
+																	<div class="profile-info-value">
+																		<span><th:block th:text="${user.createtime}"/></span>
+																	</div>
+																</div>
+															</div>
+
+															<div class="hr hr-8 dotted"></div>
+
+															<div class="profile-user-info">
+																<div class="profile-info-row">
+																	<div class="profile-info-name"> 个人网站 </div>
+
+																	<div class="profile-info-value">
+																		<a href="#" target="_blank">www.csair.com</a>
+																	</div>
+																</div>
+															</div>
+														</div><!-- /span -->
+													</div><!-- /row-fluid -->
+
+													<div class="space-20"></div>
+
+													<div class="row">
+														<div class="col-xs-12 col-sm-6">
+															<div class="widget-box transparent">
+																<div class="widget-header widget-header-small">
+																	<h4 class="smaller">
+																		<i class="icon-check bigger-110"></i>
+																		自我介绍
+																	</h4>
+																</div>
+
+																<div class="widget-body">
+																	<div class="widget-main">
+																		<p>
+																			<th:block th:text="${user.profile}"/>
+																		</p>
+
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="col-xs-12 col-sm-6">
+															<div class="widget-box transparent">
+																<div class="widget-header widget-header-small header-color-blue2">
+																	<h4 class="smaller">
+																		<i class="icon-lightbulb bigger-120"></i>
+																		技能专长
+																	</h4>
+																</div>
+
+																<div class="widget-body">
+																	<div class="widget-main padding-16">
+																		<div class="clearfix">
+																			<div class="grid3 center">
+																				<div class="easy-pie-chart percentage" data-percent="45" data-color="#CA5952">
+																					<span class="percent">100</span>%
+																				</div>
+
+																				<div class="space-2"></div>
+																				平面设计
+																			</div>
+
+																			<div class="grid3 center">
+																				<div class="center easy-pie-chart percentage" data-percent="90" data-color="#59A84B">
+																					<span class="percent">90</span>%
+																				</div>
+
+																				<div class="space-2"></div>
+																				HTML5 & CSS3
+																			</div>
+
+																			<div class="grid3 center">
+																				<div class="center easy-pie-chart percentage" data-percent="80" data-color="#9585BF">
+																					<span class="percent">80</span>%
+																				</div>
+
+																				<div class="space-2"></div>
+																				Javascript/jQuery
+																			</div>
+																		</div>
+
+																		<div class="hr hr-16"></div>
+
+																		<div class="profile-skills">
+																			<div class="progress">
+																				<div class="progress-bar" style="width:80%">
+																					<span class="pull-left">HTML5 & CSS3</span>
+																					<span class="pull-right">0%</span>
+																				</div>
+																			</div>
+
+																			<div class="progress">
+																				<div class="progress-bar progress-bar-success" style="width:72%">
+																					<span class="pull-left">Javascript & jQuery</span>
+
+																					<span class="pull-right">72%</span>
+																				</div>
+																			</div>
+
+																			<div class="progress">
+																				<div class="progress-bar progress-bar-purple" style="width:70%">
+																					<span class="pull-left">PHP & MySQL</span>
+
+																					<span class="pull-right">70%</span>
+																				</div>
+																			</div>
+
+																			<div class="progress">
+																				<div class="progress-bar progress-bar-warning" style="width:50%">
+																					<span class="pull-left">Wordpress</span>
+
+																					<span class="pull-right">50%</span>
+																				</div>
+																			</div>
+
+																			<div class="progress">
+																				<div class="progress-bar progress-bar-danger" style="width:35%">
+																					<span class="pull-left">Photoshop</span>
+
+																					<span class="pull-right">35%</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div><!-- #home -->
+											</div>
+										</div>
+									</div>
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content-area -->
+				</div><!-- /.page-content -->
+			</div><!-- /.main-content -->
+
+			<!-- 底部鸣谢 -->
+			<div th:replace="admin/think :: think"></div>
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script type="text/javascript">
+            /*<![CDATA[*/
+			window.jQuery || document.write("<script src='/assets/js/jquery.min.js'>"+"<"+"/script>");
+            /*]]>*/
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+		<script type="text/javascript">
+		 window.jQuery || document.write("<script src='/assets/js/jquery1x.min.js'>"+"<"+"/script>");
+		</script>
+		<![endif]-->
+		<script type="text/javascript">
+            /*<![CDATA[*/
+			if('ontouchstart' in document.documentElement) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+            /*]]>*/
+		</script>
+		<script th:src="@{/assets/js/bootstrap.min.js}"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<!-- ace scripts -->
+		<script th:src="@{/assets/js/ace-elements.min.js}"></script>
+		<script th:src="@{/assets/js/ace.min.js}"></script>
+
+	</body>
+</html>
